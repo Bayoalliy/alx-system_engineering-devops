@@ -3,5 +3,5 @@
 FILES="$(ls)"
 for file in $FILES
 do
-	echo "${file//[0-9]-/}"
+	echo "${file//[0-9]*-/}"
 done
