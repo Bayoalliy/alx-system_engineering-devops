@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-"""
-This module prints information about an employee
-TODO list progress. based on his/her ID to the standard output
-"""
+""" Script that uses JSONPlaceholder API to get information about employee """
+
 import json
 from sys import argv
 from urllib import request
