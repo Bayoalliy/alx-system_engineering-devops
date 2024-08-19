@@ -1,39 +1,32 @@
 #!/usr/bin/python3
 """ Script that uses JSONPlaceholder API to get information about employee """
 
-import json
 from sys import argv
-from urllib import request
+import requests
 
-if __name__ == '__main__'
+if __name__ == '__main__':
     NUMBER_OF_DONE_TASKS = 0
-    TOTAL_NUMBER_OF_TASKS = 0
 
-    with request.urlopen('https://jsonplaceholder.typicode.com/todos/') as res:
-        data = res.read()
-        data_str = data.decode('utf-8')
-        todos = json.loads(data_str)
+    url = "https://jsonplaceholder.typicode.com/"
 
-    with request.urlopen('https://jsonplaceholder.typicode.com/users/') as res:
-        data = res.read()
-        data_str = data.decode('utf-8')
-        users = json.loads(data_str)
+    user = "{}/users/{}".format(url, argv[1])
+    user_obj = requests.get(user)
+    user_json = user_obj.json()
+    EMPLOYEE_NAME = user_json.get("name")
 
+    todo = "{}/todos?userId={}".format(url, argv[1])
+    todo_obj = requests.get(todo)
+    todo_json = todo_obj.json()
+    TOTAL_NUMBER_OF_TASKS = len(todo_json)
 
-    for emp in users:
-        if emp["id"] == int(argv[1]):
-            EMPLOYEE_NAME = emp['name']
-
-    for task in todos:
-            if task["userId"] == int(argv[1]):
-                TOTAL_NUMBER_OF_TASKS += 1
-                if task["completed"] is True:
-                    NUMBER_OF_DONE_TASKS += 1
+    done_tasks = []
+    for task in todo_json:
+        if task.get("completed"):
+            NUMBER_OF_DONE_TASKS += 1
+            done_tasks.append(task.get("title"))
 
     print("Employee {} is done with tasks({}/{}):".format(
           EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
 
-    for task in todos:
-        if task["userId"] == int(argv[1]):
-            if task["completed"] is True:
-                print("\t {}".format(task["title"]))
+    for title in done_tasks:
+        print("\t {}".format(title))
