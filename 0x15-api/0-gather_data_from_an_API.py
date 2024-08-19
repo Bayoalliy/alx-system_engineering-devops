@@ -4,9 +4,9 @@ This module prints information about an employee
 TODO list progress. based on his/her ID to the standard output
 """
 
+import json
 from sys import argv
 from urllib import request
-import json
 
 NUMBER_OF_DONE_TASKS = 0
 TOTAL_NUMBER_OF_TASKS = 0
