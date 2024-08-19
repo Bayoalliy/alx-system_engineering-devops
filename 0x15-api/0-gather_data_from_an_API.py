@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
-This module returns information about
-an employee TODO list progress. based on his/her ID.
+This module prints information about an employee
+TODO list progress. based on his/her ID to the standard output
 """
 
 from sys import argv
