@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """ Script that uses JSONPlaceholder API to get information about employee """
 
-from sys import argv
 import requests
+from sys import argv
 
 if __name__ == '__main__':
     NUMBER_OF_DONE_TASKS = 0
