@@ -2,5 +2,5 @@
 
 exec { 'kill a process':
     command => 'killall killmenow',
-    path => ['/usr/bin', '/usr/sbin'],
+    path    => ['/usr/bin', '/usr/sbin'],
 }
