@@ -1,0 +1,4 @@
+#using your debugging skills, find out what is keeping your Ubuntu container is Nginx installation from listening on port 80.
+
+cp /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+service nginx restart
