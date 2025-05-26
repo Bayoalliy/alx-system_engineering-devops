@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#Configure Nginx so that its HTTP response contains a custom header (on web-01 and web-02 )
+apt-get -y update
+apt-get install haproxy -y
+echo -e '\nfrontend http_front\n\tbind *:80\n\tdefault_backend http_back' >> /etc/haproxy/haproxy.cfg
+echo -e '\nbackend http_back\n\tserver web1 3.82.128.8:80 check\n\tserver web2 3.83.155.83:80 check' >> /etc/haproxy/haproxy.cfg
+sudo service nginx restart
