@@ -3,4 +3,4 @@
 sed -i '/#user www-data/a user nginx;' /etc/nginx/nginx.conf
 sed -i 's/listen 80/listen 8080/' /etc/nginx/sites-available/default
 pkill apache
-sudo -u nginx service ngix start
+sudo -u nginx service nginx start
