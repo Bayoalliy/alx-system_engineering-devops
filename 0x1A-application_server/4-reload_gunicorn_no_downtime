@@ -3,4 +3,4 @@
 
 # Send a HUP signal to the gunicorn Master processes
 # (ie those with a parent process ID of 1)
-pkill --signal HUP --parent 1 gunicorn
+kill -HUP $(pgrep 'gunicorn' -P 1)
