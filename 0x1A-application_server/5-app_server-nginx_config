@@ -1,6 +1,6 @@
 server {
-	listen 80 default_server;
-	server_name localhost 35.231.33.237;
+	listen 80;
+	server_name localhost 3.82.128.8;
 
 	root /home/ubuntu/AirBnB_clone_v4/web_dynamic;
 
